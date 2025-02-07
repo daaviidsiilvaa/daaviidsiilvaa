@@ -1,0 +1,199 @@
+PS C:\Users\asilv> aws ec2 create-vpc --cidr-block 10.0.0.0/16 --endpoint-url=http://localhost:4566 
+
+{ 
+
+    "Vpc": { 
+
+        "CidrBlock": "10.0.0.0/16", 
+
+        "DhcpOptionsId": "default", 
+
+        "State": "pending", 
+
+        "VpcId": "vpc-41d7aaf99903fdd51", 
+
+        "OwnerId": "000000000000", 
+
+        "InstanceTenancy": "default", 
+
+        "Ipv6CidrBlockAssociationSet": [], 
+
+        "CidrBlockAssociationSet": [ 
+
+            { 
+
+                "AssociationId": "vpc-cidr-assoc-18ea7954191c2538a", 
+
+                "CidrBlock": "10.0.0.0/16", 
+
+                "CidrBlockState": { 
+
+                    "State": "associated" 
+
+                } 
+
+            } 
+
+        ], 
+
+        "Tags": [] 
+
+    } 
+
+} 
+
+ 
+
+ 
+
+PS C:\Users\asilv> aws ec2 describe-vpcs --endpoint-url=http://localhost:4566 
+
+{ 
+
+    "Vpcs": [ 
+
+        { 
+
+            "CidrBlock": "172.31.0.0/16", 
+
+            "DhcpOptionsId": "default", 
+
+            "State": "available", 
+
+            "VpcId": "vpc-b951036daafc84f8b", 
+
+            "OwnerId": "000000000000", 
+
+            "InstanceTenancy": "default", 
+
+            "Ipv6CidrBlockAssociationSet": [], 
+
+            "CidrBlockAssociationSet": [ 
+
+                { 
+
+                    "AssociationId": "vpc-cidr-assoc-4ba1f1c4e573360c3", 
+
+                    "CidrBlock": "172.31.0.0/16", 
+
+                    "CidrBlockState": { 
+
+                        "State": "associated" 
+
+                    } 
+
+                } 
+
+            ], 
+
+            "IsDefault": true, 
+
+            "Tags": [] 
+
+        }, 
+
+        { 
+
+            "CidrBlock": "10.0.0.0/16", 
+
+            "DhcpOptionsId": "default", 
+
+            "State": "available", 
+
+            "VpcId": "vpc-41d7aaf99903fdd51", 
+
+            "OwnerId": "000000000000", 
+
+            "InstanceTenancy": "default", 
+
+            "Ipv6CidrBlockAssociationSet": [], 
+
+            "CidrBlockAssociationSet": [ 
+
+                { 
+
+                    "AssociationId": "vpc-cidr-assoc-18ea7954191c2538a", 
+
+                    "CidrBlock": "10.0.0.0/16", 
+
+                    "CidrBlockState": { 
+
+                        "State": "associated" 
+
+                    } 
+
+                } 
+
+            ], 
+
+            "IsDefault": false, 
+
+            "Tags": [] 
+
+        } 
+
+    ] 
+
+} 
+
+
+PS C:\Users\asilv> aws ec2 create-route-table --vpc-id vpc-b951036daafc84f8b --endpoint-url=http://localhost:4566   
+
+{ 
+
+    "RouteTable": { 
+
+        "Associations": [], 
+
+        "RouteTableId": "rtb-80a8bc4ab6f947f48", 
+
+        "Routes": [ 
+
+            { 
+
+                "DestinationCidrBlock": "172.31.0.0/16", 
+
+                "GatewayId": "local", 
+
+                "State": "active" 
+
+            } 
+
+        ], 
+
+        "Tags": [], 
+
+        "VpcId": "vpc-b951036daafc84f8b", 
+
+        "OwnerId": "000000000000" 
+
+    } 
+
+} 
+
+
+ 
+
+PS C:\Users\asilv> aws ec2 create-internet-gateway --endpoint-url=http://localhost:4566 
+
+{ 
+
+    "InternetGateway": { 
+
+        "Attachments": [], 
+
+        "InternetGatewayId": "", 
+
+        "OwnerId": "000000000000", 
+
+        "Tags": [] 
+
+    } 
+
+} 
+
+ 
+
+ 
+
+
