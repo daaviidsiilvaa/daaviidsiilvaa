@@ -1,0 +1,101 @@
+### Primera subred
+aws ec2 create-subnet --vpc-id vpc-41d7aaf99903fdd51 --cidr-block 10.0.1.0/24 --endpoint-url=http://localhost:4566
+{
+    "Subnet": {
+        "AvailabilityZone": "us-east-1d",
+        "AvailabilityZoneId": "use1-az4",
+        "AvailableIpAddressCount": 251,
+        "CidrBlock": "10.0.1.0/24",
+        "DefaultForAz": false,
+        "MapPublicIpOnLaunch": false,
+        "State": "pending",
+        "SubnetId": "subnet-c203cfd59925200e5",
+        "VpcId": "vpc-41d7aaf99903fdd51",
+        "OwnerId": "000000000000",
+        "AssignIpv6AddressOnCreation": false,
+        "Ipv6CidrBlockAssociationSet": [],
+        "Tags": [],
+    }
+}
+
+
+### Segunda subred
+ aws ec2 create-subnet --vpc-id vpc-41d7aaf99903fdd51 --cidr-block 10.0.2.0/24 --endpoint-url=http://localhost:4566
+{
+    "Subnet": {
+        "AvailabilityZone": "us-east-1d",
+        "AvailabilityZoneId": "use1-az4",
+        "AvailableIpAddressCount": 251,
+        "CidrBlock": "10.0.2.0/24",
+        "DefaultForAz": false,
+        "MapPublicIpOnLaunch": false,
+        "State": "pending",
+        "SubnetId": "subnet-bc5d792ecd4d33b22",
+        "VpcId": "vpc-41d7aaf99903fdd51",
+        "OwnerId": "000000000000",
+        "AssignIpv6AddressOnCreation": false,
+        "Ipv6CidrBlockAssociationSet": [],
+        "Tags": [],
+        "SubnetArn": "arn:aws:ec2:us-east-1:000000000000:subnet/subnet-bc5d792ecd4d33b22"
+    }
+}
+
+## Asociación a tabla de enrutamiento
+
+aws ec2 associate-route-table --route-table-id rtb-fdf0c91381f0123cb  --subnet-id subnet-c203cfd59925200e5 --endpoint-url=http://localhost:4566
+{
+    "AssociationId": "rtbassoc-bddb0df08bb947ae4"
+}
+
+
+
+ aws ec2 associate-route-table --route-table-id rtb-fdf0c91381f0123cb  --subnet-id subnet-bc5d792ecd4d33b22 --endpoint-url=http://localhost:4566
+{
+    "AssociationId": "rtbassoc-27f01e86279e754f4"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+## UTILIZANDO ESTA VEZ,EL VPC-ID PERSONALIZADO
+
+PS C:\Users\asilv> aws ec2 create-route-table --vpc-id vpc-41d7aaf99903fdd51 --endpoint-url=http://localhost:4566
+{
+    "RouteTable": {
+        "Associations": [],
+        "RouteTableId": "rtb-fdf0c91381f0123cb",
+        "Routes": [
+            {
+                "DestinationCidrBlock": "10.0.0.0/16",
+                "GatewayId": "local",
+                "State": "active"
+            }
+        ],
+        "Tags": [],
+        "VpcId": "vpc-41d7aaf99903fdd51",
+        "OwnerId": "000000000000"
+    }
+}
+
+PS C:\Users\asilv> aws ec2 create-internet-gateway --endpoint-url=http://localhost:4566
+
+{
+    "InternetGateway": {
+        "Attachments": [],
+        "InternetGatewayId": "igw-980512bc986753b9f",
+        "OwnerId": "000000000000",
+        "Tags": []
+    }
+}
+
+PS C:\Users\asilv> aws ec2 attach-internet-gateway --vpc-id vpc-41d7aaf99903fdd51 --internet-gateway-id igw-980512bc986753b9f --endpoint-url=http://localhost:4566
+>> 
