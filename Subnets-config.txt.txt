@@ -1,4 +1,4 @@
-### Primera subred
+Primera subred
 aws ec2 create-subnet --vpc-id vpc-41d7aaf99903fdd51 --cidr-block 10.0.1.0/24 --endpoint-url=http://localhost:4566
 {
     "Subnet": {
@@ -18,8 +18,7 @@ aws ec2 create-subnet --vpc-id vpc-41d7aaf99903fdd51 --cidr-block 10.0.1.0/24 --
     }
 }
 
-
-### Segunda subred
+ Segunda subred
  aws ec2 create-subnet --vpc-id vpc-41d7aaf99903fdd51 --cidr-block 10.0.2.0/24 --endpoint-url=http://localhost:4566
 {
     "Subnet": {
@@ -40,7 +39,7 @@ aws ec2 create-subnet --vpc-id vpc-41d7aaf99903fdd51 --cidr-block 10.0.1.0/24 --
     }
 }
 
-## Asociación a tabla de enrutamiento
+ Asociación a tabla de enrutamiento
 
 aws ec2 associate-route-table --route-table-id rtb-fdf0c91381f0123cb  --subnet-id subnet-c203cfd59925200e5 --endpoint-url=http://localhost:4566
 {
@@ -66,7 +65,7 @@ aws ec2 associate-route-table --route-table-id rtb-fdf0c91381f0123cb  --subnet-i
 
 
 
-## UTILIZANDO ESTA VEZ,EL VPC-ID PERSONALIZADO
+ UTILIZANDO ESTA VEZ,EL VPC-ID PERSONALIZADO
 
 PS C:\Users\asilv> aws ec2 create-route-table --vpc-id vpc-41d7aaf99903fdd51 --endpoint-url=http://localhost:4566
 {
