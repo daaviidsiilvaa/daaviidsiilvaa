@@ -1,0 +1,26 @@
+ aws s3api create-bucket --bucket my-backup-bucket --endpoint-url=http://localhost:4566
+{
+    "Location": "/my-backup-bucket"
+}
+
+ aws s3api list-buckets --endpoint-url=http://localhost:4566
+    "Buckets": [
+        {
+            "Name": "my-backup-bucket",
+            "CreationDate": "2025-02-07T10:43:47+00:00"
+        }
+    ],
+    "Owner": {
+        "DisplayName": "webfile",
+        "ID": "75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a"
+    }
+}
+
+
+PS C:\Users\asilv> echo "Backup data" > backup.txt
+
+PS C:\Users\asilv> aws s3 cp backup.txt s3://my-backup-bucket/ --endpoint-url=http://localhost:4566
+upload: .\backup.txt to s3://my-backup-bucket/backup.txt
+
+PS C:\Users\asilv> aws s3 ls s3://my-backup-bucket/ --endpoint-url=http://localhost:4566
+2025-02-07 11:52:37         28 backup.txt
