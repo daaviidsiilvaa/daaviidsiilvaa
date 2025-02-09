@@ -1,5 +1,5 @@
 # 💫 About Me:
-I'm currently studying Systems Management <br>
+**I'm currently studying Systems Management** <br>
 
 
 # 💻 Tech Stack:
