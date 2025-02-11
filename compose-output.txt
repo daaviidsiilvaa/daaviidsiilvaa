@@ -1,0 +1,4 @@
+CONTAINER ID   IMAGE             COMMAND                  CREATED              STATUS              PORTS                  NAMES
+09fcc0734305   nginx:latest      "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:8080->80/tcp   practicas-web-1
+cc91eea7e9d8   postgres:latest   "docker-entrypoint.s…"   About a minute ago   Up About a minute   5432/tcp               practicas-db-1
+4cb76e7f20a5   php:7.4-fpm       "docker-php-entrypoi…"   About a minute ago   Up About a minute   9000/tcp               practicas-app-1
