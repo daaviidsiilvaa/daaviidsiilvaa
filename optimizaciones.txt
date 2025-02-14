@@ -1,0 +1,20 @@
+**Configuración del contenedor**
+
+Services:
+  web:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256m
+    volumes:
+       - 'myshare:/etc/nginx'
+        
+    networks:
+      - frontend
+
+
+**Output por terminal - docker stats**
+
+fefdb7cd1047   practicas-web-1                0.00%     9.406MiB / 256MiB     3.67%     1.49kB / 0B   0B / 0B     13
